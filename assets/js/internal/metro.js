@@ -4,10 +4,12 @@
 
 var metroApp = {
 
+     metroKey : process.ENV.WMATA_KEY,
+
     loadMetroAlerts: function () {
 
         var params = {
-            'api_key': '06ab12b939d14769b2e887c967ccd000',
+            'api_key': metroApp.metroKey
         };
         $.ajax({
             url: 'https://api.wmata.com/Incidents.svc/json/Incidents?' + $.param(params),
