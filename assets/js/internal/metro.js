@@ -2,14 +2,16 @@
  * Created by mjn on 5/7/15.
  */
 
+
+
 var metroApp = {
 
-     metroKey : ENV.WMATA_KEY,
+
 
     loadMetroAlerts: function () {
 
         var params = {
-            'api_key': metroApp.metroKey
+            'api_key': '06ab12b939d14769b2e887c967ccd000'
         };
         $.ajax({
             url: 'https://api.wmata.com/Incidents.svc/json/Incidents?' + $.param(params),
