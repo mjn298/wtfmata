@@ -6,6 +6,8 @@ var express = require('express');
 var app = express();
 var path = require('path');
 
+var port = process.env.PORT || 2988;
+
 app.get('/', function(req, res){
     res.sendFile(path.join(__dirname + '/index.html'));
 });
@@ -21,5 +23,6 @@ app.get('/assets/js/twitterWidget.js', function(req, res){
 
 app.use(express.static(__dirname + '/assets'));
 
-app.listen(2988);
-console.log('on 2988');
+app.listen(port, function(){
+    console.log("on port " + port);
+});
