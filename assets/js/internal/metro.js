@@ -100,7 +100,10 @@ var metroApp = {
             if (inputArray.length == 0) {
                 $("#dest").html("No Trains");
             } else {
+                var name = inputArray[1].LocationName;
+                metroApp.changeName(name);
                 for (var x = 0; x< inputArray.length; x++) {
+
                     if(inputArray[x].Group == '1') {
                         $("#dest").append("<li class='grp1'>" + inputArray[x].DestinationName + "</li><hr>");
                         $("#mins").append("<li class='grp1'>" + inputArray[x].Min + "</li><hr>");
@@ -163,6 +166,11 @@ var metroApp = {
         for (var x = 0; x < colors.length; x++) {
             metroApp.listStations(colors[x]);
         }
+    },
+
+    changeName : function(name) {
+        $("#station-name").html("Selected Station: ");
+        $("#station-name").html("Selected Station: " + name);
     },
 
     stationHandler : function() {
