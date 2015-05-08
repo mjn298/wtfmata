@@ -99,6 +99,7 @@ var metroApp = {
         $("#cars").html("");
             if (inputArray.length == 0) {
                 $("#dest").html("No Trains");
+                metroApp.changeName("Bad Station Data, Try Again");
             } else {
                 var name = inputArray[1].LocationName;
                 metroApp.changeName(name);
