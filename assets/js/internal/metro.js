@@ -150,6 +150,8 @@ var metroApp = {
     },
     writeElevatorStatus : function(inputArray) {
         $("#elevators").html("");
+        $('select').find('option:first').attr('selected', 'selected');
+
         if (inputArray.length == 0) {
             $("#elevators").html("<li>No current outages for this station!</li>");
         } else {
@@ -179,13 +181,16 @@ var metroApp = {
             metroApp.getArrivalTimesForStation(id);
             metroApp.getElevatorStatus(id);
             console.log(id);
+
+
         });
         $('#green').change(function(){
             var id = $("#green option:selected").attr("id");
             metroApp.getArrivalTimesForStation(id);
             metroApp.getElevatorStatus(id);
-
             console.log(id);
+
+
         });
         $('#yellow').change(function(){
             var id = $("#yellow option:selected").attr("id");
@@ -206,12 +211,14 @@ var metroApp = {
             metroApp.getArrivalTimesForStation(id);
             metroApp.getElevatorStatus(id);
 
+
             console.log(id);
         });
         $('#silver').change(function(){
             var id = $("#silver option:selected").attr("id");
             metroApp.getArrivalTimesForStation(id);
             metroApp.getElevatorStatus(id);
+
 
             console.log(id);
         });
