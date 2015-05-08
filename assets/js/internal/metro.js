@@ -69,7 +69,68 @@ var metroApp = {
     },
 
     getArrivalTimesForStation: function (id) {
-        
+        $("#train-error").html("");
+        var params = {
+            'api_key': '06ab12b939d14769b2e887c967ccd000'
+
+        };
+        $.ajax({
+            url:'https://api.wmata.com/StationPrediction.svc/json/GetPrediction/'+id+'?' + $.param(params),
+            type: 'GET'
+        })
+            .done(function(data){
+                console.log(data);
+                metroApp.writeArrivalTimes(data.Trains);
+            })
+            .fail(function(){
+                console.log("arrival times error");
+                $("#train-error").html("WMATA API error - please refresh page");
+            });
+
+    },
+
+    writeArrivalTimes: function(inputArray){
+            if (inputArray.length == 0) {
+                $("#dir1").html("No Trains");
+            } else {
+                for (var x = 0; x < inputArray.length; x++) {
+                    if (inputArray[x].Group == "1") {
+                        $(".dir1list").append("<li>Dest: " + inputArray[x].DestinationName + " Min: " + inputArray[x].Min + "Car: " + inputArray[x].Car + "</li>" );
+                    } else {
+                        $(".dir2list").append("<li>Dest: " + inputArray[x].DestinationName + " Min: " + inputArray[x].Min + "Car: " + inputArray[x].Car + "</li>");
+                    }
+                }
+            }
+    },
+
+    getElevatorStatus : function(id) {
+        var params = {
+            'api_key': '06ab12b939d14769b2e887c967ccd000',
+            'StationCode' : id
+        };
+        $.ajax({
+            url: 'https://api.wmata.com/Incidents.svc/json/ElevatorIncidents?' + $.param(params),
+            type: 'GET'
+        })
+            .done(function(data){
+                console.log(data);
+                metroApp.writeElevatorStatus(data.ElevatorIncidents);
+            })
+            .fail(function(){
+                console.log("error in elevator");
+            })
+
+    },
+    writeElevatorStatus : function(inputArray) {
+        if (inputArray.length == 0) {
+            $("#elevators").html("<li>No current outages for this station!</li>");
+        } else {
+            for (var x = 0; x < inputArray.length; x++) {
+                $("#elevators").append("<li>Issue: " +inputArray[x].LocationDescription+"</li>" +
+                "<li>Reason: " + inputArray[x].SymptomDescription+"</li>" +
+                "<li>Last Updated: " + inputArray[x].DateUpdated + "</li>");
+            }
+        }
     },
 
     triggerFills : function() {
@@ -83,31 +144,42 @@ var metroApp = {
         $('#red').change(function(){
             var id = $("#red option:selected").attr("id");
             metroApp.getArrivalTimesForStation(id);
+            metroApp.getElevatorStatus(id);
             console.log(id);
         });
         $('#green').change(function(){
             var id = $("#green option:selected").attr("id");
             metroApp.getArrivalTimesForStation(id);
+            metroApp.getElevatorStatus(id);
+
             console.log(id);
         });
         $('#yellow').change(function(){
             var id = $("#yellow option:selected").attr("id");
             metroApp.getArrivalTimesForStation(id);
+            metroApp.getElevatorStatus(id);
+
             console.log(id);
         });
         $('#blue').change(function(){
             var id = $("#blue option:selected").attr("id");
             metroApp.getArrivalTimesForStation(id);
+            metroApp.getElevatorStatus(id);
+
             console.log(id);
         });
         $('#orange').change(function(){
             var id = $("#orange option:selected").attr("id");
             metroApp.getArrivalTimesForStation(id);
+            metroApp.getElevatorStatus(id);
+
             console.log(id);
         });
         $('#silver').change(function(){
             var id = $("#silver option:selected").attr("id");
             metroApp.getArrivalTimesForStation(id);
+            metroApp.getElevatorStatus(id);
+
             console.log(id);
         });
     }
