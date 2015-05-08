@@ -10,6 +10,10 @@ app.get('/', function(req, res){
     res.sendFile(path.join(__dirname + '/index.html'));
 });
 
+app.get('/about', function(req, res){
+    res.sendFile(path.join(__dirname + '/about.html'));
+});
+
 app.get('/assets/js/twitterWidget.js', function(req, res){
     res.set('Content-Type', 'text/javascript');
     res.sendfile('/assets/js/twitterWidget/js');

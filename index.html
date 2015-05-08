@@ -49,6 +49,30 @@
             border: 3px solid silver;
         }
 
+       #dest, #mins, #cars {
+           list-style-type: none;
+       }
+
+        .grp1 {
+            font-size: 14px;
+            background-color: #cbd7ed;
+            padding-left: 5px;
+        }
+
+        .grp2 {
+            font-size: 14px;
+            padding-left: 5px;
+        }
+
+        #elevators {
+            font-size: 14px;
+        }
+
+        hr {
+            margin: 4px 0;
+            border-color: black;
+
+        }
 
     </style>
 
@@ -64,7 +88,9 @@
             <a href="/" class="navbar-brand">WTFMATA</a>
         </div>
         <ul class="nav navbar-nav">
-            <li></li>
+            <li>
+               <li><a href="/about">About/Contact</a>
+            </li>
         </ul>
 
     </div>
@@ -76,6 +102,7 @@
         <p>If the twitter feed isn't working in Chrome, the Disconnect plugin is likely to blame</p>
     </div>
     <div class="jumbotron">
+        <div class="row"><h5>Choose a station!</h5></div>
         <div class="row">
             <div class="col-md-2"><select id="red"><option selected="Red">Red</option></select></div>
             <div class="col-md-2"><select id="green"><option selected="Green">Green</option></select></div>
@@ -85,31 +112,61 @@
             <div class="col-md-2"><select id="silver"><option selected="Silver">Silver</option></select></div>
         </div>
         <div id="list-fail" class="alert alert-danger" style="display: none;"><h3 style="color: black">metro info crapped out! reload page.</h3></div>
+
+
         <div class="row">
-            <div class="col-md-6">
-            <h4>Elevator/Escalator Outages</h4>
+            <div class="col-md-4"><h4>Accessibility Outages</h4>
+                <ul id="elevators"></ul>
             </div>
-            <div class="col-md-6">
-                <h4>Arrivals</h4>
-                <p class="train-error"></p>
-             <div class="col-md-3"><h6 id="dir1"></h6>
-             <ul class="dir1list"></ul>
-             </div>
-            <div class="col-md-3"><h6 id="dir2"></h6>
-                <ul class="dir2list"></ul>
+            <div class="col-md-4"><h4 id="arrivals">Destination</h4>
+                <ul id="dest"></ul>
             </div>
+            <div class="col-md-2"><h4>Minutes</h4>
+                <ul id="mins"></ul>
             </div>
-
-
-
-
-        <div class="col-md-3"><ul id="elevators"></ul></div>
-
+            <div class="col-md-2"><h4>Cars</h4>
+                <ul id="cars"></ul>
+            </div>
         </div>
+
+        <!--<div class="row">-->
+            <!--<div class="col-md-4">-->
+                <!--<ul id="elevators"></ul>-->
+            <!--</div>-->
+            <!--<div class="col-md-8">-->
+                <!--<div class="row">-->
+                    <!--<div class="col-md-4">-->
+                        <!--<ul id="dest"></ul>-->
+                    <!--</div>-->
+                    <!--<div class="col-md-2">-->
+                        <!--<ul id="mins"></ul>-->
+                    <!--</div>-->
+                    <!--<div class="col-md-2 col-md-pull-right">-->
+                        <!--<ul id="cars"></ul>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+
+
+
+
+
+
+        <!--<div class="col-md-8">-->
+            <!--<ul class="dir1list"></ul>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="row">-->
+        <!--<div class="col-md-8">-->
+            <!--<ul class="dir2list"></ul>-->
+        <!--</div>-->
+    <!--</div>-->
+
     </div>
+        </div>
     <div class="row">
         <div class="col-md-6"><h3>Metro Alerts</h3>
-        <div id="alerts-div" class="alert" style="max-height: 100px; overflow-y: scroll; overflow-x: hidden; background-color: #ededed;"><ul id="alerts-list" style="color: black"></ul></div>
+        <div id="alerts-div" class="alert" style=" background-color: #ededed;"><ul id="alerts-list" style="color: black"></ul></div>
         </div>
 
         <div class="col-md-6"><h3>Instagram (#WTFMATA)</h3>

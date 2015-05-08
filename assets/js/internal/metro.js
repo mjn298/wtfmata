@@ -91,16 +91,33 @@ var metroApp = {
 
     writeArrivalTimes: function(inputArray){
             if (inputArray.length == 0) {
-                $("#dir1").html("No Trains");
+                $("#dest").html("No Trains");
             } else {
-                for (var x = 0; x < inputArray.length; x++) {
-                    if (inputArray[x].Group == "1") {
-                        $(".dir1list").append("<li>Dest: " + inputArray[x].DestinationName + " Min: " + inputArray[x].Min + "Car: " + inputArray[x].Car + "</li>" );
+                for (var x = 0; x< inputArray.length; x++) {
+                    if(inputArray[x].Group == '1') {
+                        $("#dest").append("<li class='grp1'>" + inputArray[x].DestinationName + "</li><hr>");
+                        $("#mins").append("<li class='grp1'>" + inputArray[x].Min + "</li><hr>");
+                        $("#cars").append("<li class='grp1'>" + inputArray[x].Car + "</li><hr>");
                     } else {
-                        $(".dir2list").append("<li>Dest: " + inputArray[x].DestinationName + " Min: " + inputArray[x].Min + "Car: " + inputArray[x].Car + "</li>");
+                        $("#dest").append("<li class='grp2'>" + inputArray[x].DestinationName + "</li><hr>");
+                        $("#mins").append("<li class='grp2'>" + inputArray[x].Min + "</li><hr>");
+                        $("#cars").append("<li class='grp2'>" + inputArray[x].Car + "</li><hr>");
                     }
                 }
+
             }
+
+
+
+            // else {
+            //    for (var x = 0; x < inputArray.length; x++) {
+            //        if (inputArray[x].Group == "1") {
+            //            $(".dir1list").append("<li>Dest: " + inputArray[x].DestinationName + " Min: " + inputArray[x].Min + " Car: " + inputArray[x].Car + "</li>" );
+            //        } else {
+            //            $(".dir2list").append("<li>Dest: " + inputArray[x].DestinationName + " Min: " + inputArray[x].Min + " Car: " + inputArray[x].Car + "</li>");
+            //        }
+            //    }
+            //}
     },
 
     getElevatorStatus : function(id) {
