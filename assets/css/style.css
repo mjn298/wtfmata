@@ -1,0 +1,8 @@
+.alert {
+    max-height: 100px;
+    overflow: scroll;
+}
+
+#alert-item {
+    color: black;
+}

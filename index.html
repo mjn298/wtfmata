@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootswatch/3.3.1/paper/bootstrap.min.css">
+    <link rel="stylesheet" href="css/internal/style.css">
+    <script src="js/external/jquery-1.11.3.min.js"></script>
+    <script src="js/external/Q.js"></script>
+    <script type="application/javascript" src="js/external/twitterWidget.js"></script>
+    <script src="js/external/instaWidget.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        var feed = new Instafeed({
+            get: 'tagged',
+            tagName: 'wtfmata',
+            clientId: 'f14d6642dad54989abea3c873ab297b5'
+        });
+        feed.run();
+    </script>
+
+    <style>
+        select {
+            border: 3px solid black;
+            border-radius: 5px;
+            padding-left: 15px;
+        }
+
+        #red {
+            border: 3px solid red;
+        }
+
+        #green {
+            border: 3px solid green;
+        }
+
+        #yellow {
+            border: 3px solid #ffe41c;
+        }
+
+        #blue {
+            border: 3px solid blue;
+        }
+
+        #orange {
+            border: 3px solid orange;
+        }
+
+        #silver {
+            border: 3px solid silver;
+        }
+
+
+    </style>
+
+
+    <meta charset="UTF-8">
+    <title>WTFMATA</title>
+</head>
+<body>
+<header>
+<div class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="/" class="navbar-brand">WTFMATA</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li></li>
+        </ul>
+
+    </div>
+</div>
+</header>
+
+<main class="container">
+    <div class="row">
+        <p>If the twitter feed isn't working in Chrome, the Disconnect plugin is likely to blame</p>
+    </div>
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-2"><select id="red"><option selected="Red">Red</option></select></div>
+            <div class="col-md-2"><select id="green"><option selected="Green">Green</option></select></div>
+            <div class="col-md-2"><select id="yellow"><option selected="Yellow">Yellow</option></select></div>
+            <div class="col-md-2"><select id="blue"><option selected="Blue">Blue</option></select></div>
+            <div class="col-md-2"><select id="orange"><option selected="Orange">Orange</option></select></div>
+            <div class="col-md-2"><select id="silver"><option selected="Silver">Silver</option></select></div>
+        </div>
+        <div id="list-fail" class="alert alert-danger" style="display: none;"><h3 style="color: black">metro info crapped out! reload page.</h3></div>
+        <div class="row"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-6"><h3>Metro Alerts</h3>
+        <div id="alerts-div" class="alert" style="max-height: 100px; overflow-y: scroll; overflow-x: hidden; background-color: #ededed;"><ul id="alerts-list" style="color: black"></ul></div>
+        </div>
+
+        <div class="col-md-6"><h3>Instagram (#WTFMATA)</h3>
+            <div id="instafeed" class="col-md-6"></div>
+        </div>
+    </div>
+    <div class="row">
+    <div class="col-md-6">
+
+        <h3>Twitter (#WTFMATA)</h3>
+        <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/hashtag/WTFMATA" data-widget-id="596492732488626176">#WTFMATA Tweets</a>
+
+    </div>
+    </div>
+
+
+</main>
+
+
+<script src="js/internal/metro.js"></script>
+
+</body>
+
+</html>
+

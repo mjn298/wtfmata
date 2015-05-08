@@ -1,0 +1,14 @@
+{
+  "name": "wtfmata",
+  "version": "0.0.2",
+  "description": "wtfmata",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mjn",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.12.3"
+  }
+}
