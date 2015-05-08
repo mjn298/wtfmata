@@ -90,6 +90,9 @@ var metroApp = {
     },
 
     writeArrivalTimes: function(inputArray){
+        $("#dest").html("");
+        $("#mins").html("");
+        $("#cars").html("");
             if (inputArray.length == 0) {
                 $("#dest").html("No Trains");
             } else {
@@ -139,6 +142,7 @@ var metroApp = {
 
     },
     writeElevatorStatus : function(inputArray) {
+        $("#elevators").html("");
         if (inputArray.length == 0) {
             $("#elevators").html("<li>No current outages for this station!</li>");
         } else {
