@@ -4,7 +4,7 @@
 
 var metroApp = {
 
-     metroKey : process.ENV.WMATA_KEY,
+     metroKey : ENV.WMATA_KEY,
 
     loadMetroAlerts: function () {
 

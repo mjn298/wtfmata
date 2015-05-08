@@ -8,6 +8,9 @@ var path = require('path');
 
 var port = process.env.PORT || 2988;
 
+var wmataKey = process.env.WMATA_KEY;
+var instaKey = process.env.IG_KEY;
+
 app.get('/', function(req, res){
     res.sendFile(path.join(__dirname + '/index.html'));
 });
@@ -24,5 +27,6 @@ app.get('/assets/js/twitterWidget.js', function(req, res){
 app.use(express.static(__dirname + '/assets'));
 
 app.listen(port, function(){
+    console.log(wmataKey, instaKey);
     console.log("on port " + port);
 });
