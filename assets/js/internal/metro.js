@@ -154,7 +154,7 @@ var metroApp = {
         $('select').find('option:first').attr('selected', 'selected');
 
         if (inputArray.length == 0) {
-            $("#elevators").html("<li>No current outages for this station!</li>");
+            $("#elevators").html("<li>No current elevator/escalator outages for this station!</li>");
         } else {
             for (var x = 0; x < inputArray.length; x++) {
                 $("#elevators").append("<li>Issue: " +inputArray[x].LocationDescription+"</li>" +
